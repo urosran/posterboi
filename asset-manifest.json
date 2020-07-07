@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.js": "/posterboi/static/js/main.31f0cdf5.chunk.js",
+    "main.js.map": "/posterboi/static/js/main.31f0cdf5.chunk.js.map",
+    "runtime-main.js": "/posterboi/static/js/runtime-main.47247946.js",
+    "runtime-main.js.map": "/posterboi/static/js/runtime-main.47247946.js.map",
+    "static/js/2.c4d40f2a.chunk.js": "/posterboi/static/js/2.c4d40f2a.chunk.js",
+    "static/js/2.c4d40f2a.chunk.js.map": "/posterboi/static/js/2.c4d40f2a.chunk.js.map",
+    "index.html": "/posterboi/index.html",
+    "precache-manifest.9f9b52a0caf8f26d312fb264f882c430.js": "/posterboi/precache-manifest.9f9b52a0caf8f26d312fb264f882c430.js",
+    "service-worker.js": "/posterboi/service-worker.js",
+    "static/js/2.c4d40f2a.chunk.js.LICENSE.txt": "/posterboi/static/js/2.c4d40f2a.chunk.js.LICENSE.txt",
+    "static/media/hompageCover.jpg": "/posterboi/static/media/hompageCover.6c6c6a5a.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.47247946.js",
+    "static/js/2.c4d40f2a.chunk.js",
+    "static/js/main.31f0cdf5.chunk.js"
+  ]
+}
