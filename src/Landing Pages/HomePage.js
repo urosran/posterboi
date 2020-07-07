@@ -11,6 +11,8 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 // TODO: for this to work we will create a folder called assets in src and place it here
 //  download any image and name it coverImg.jpg (www.unsplash.com is a great resource)
 import coverImg from '../assets/hompageCover.jpg'
+import Slide from "@material-ui/core/Slide";
+import Grow from "@material-ui/core/Grow";
 
 const HomePage = () => {
 
@@ -18,39 +20,58 @@ const HomePage = () => {
 
     return (
         // defines a top level container (the one for the entire page)
-        <div>
+        <div className={classes.top}>
             {/*CssBaseline is a very useful component that allows us to establish a baseline that we build on*/}
             <CssBaseline/>
 
             <Grid container
                   alignContent={'center'} alignItems={'center'} // centers all content
-                  className={classes.container} // applies the CSS declared above
                   direction={'column'} // aligns everything in a column, could also be row
-                  style={{backgroundImage: `url(${coverImg})`}} // adds a background image
+                // adds a background image
             >
                 {/*now we define another container for out buttons at the very top*/}
-                <Grid container direction={'row'} alignContent={'flex-end'} alignItems={'flex-end'}>
-                    <Button disableRipple={true} className={classes.button}>Log In</Button>
-                    {/*This is how you can route the user from any component (explanation below)*/}
-                    <Route render={({history}) => (
-                        <Button disableRipple={true} // disables ripple effect on the button press
-                                className={classes.button} // this applies the styles we will define later
-                                onClick={() => history.push('./store')}>Shop</Button>)}/>
+                {/*<Grid container direction={'row'} alignContent={'flex-end'} alignItems={'flex-end'}>*/}
+                {/*    <Button disableRipple={true} className={classes.button}>Log In</Button>*/}
+                {/*    /!*This is how you can route the user from any component (explanation below)*!/*/}
+                {/*    <Route render={({history}) => (*/}
+                {/*        <Button disableRipple={true} // disables ripple effect on the button press*/}
+                {/*                className={classes.button} // this applies the styles we will define later*/}
+                {/*                on={() => history.push('./store')}>Shop</Button>)}/>*/}
 
-                    <Button disableRipple={true} className={classes.button}>About</Button>
-                </Grid>
+                {/*    <Button disableRipple={true} className={classes.button}>About</Button>*/}
+                {/*</Grid>*/}
                 <Grid container
                       alignContent={'center'} alignItems={'center'} // centers all content
                       direction={'column'} // aligns everything in a column, could also be row
                 >
                     {/* make sure to wrap container’s children with <Grid item> tag*/}
-                    <Grid item alignSelf={'center'}>
-                        <Typography className={classes.coverTxt}>React Bare Necessities</Typography>
+
+                    <Grid className={classes.container} // applies the CSS declared above
+                          item alignSelf={'center'}>
+                        <Typography className={classes.coverTxt}>Are you...
+                        </Typography>
+                        <Typography className={classes.boring}>...boring?</Typography>
+
                     </Grid>
-                    <Grid item alignSelf={'center'}>
-                        <Typography className={classes.subTitleTxt}>Bite-sized React </Typography>
-                    </Grid>
+                    <Slide direction="left" in={true} timeout={1000} mountOnEnter unmountOnExit>
+
+                        <Grid className={classes.container} // applies the CSS declared above
+                              item alignSelf={'center'}>
+                            <Typography className={classes.subTitleTxt}>why should your walls be? </Typography>
+                        </Grid>
+                    </Slide>
+
                 </Grid>
+            </Grid>
+            <Grid container alignItems={"center"} direction={"column"}>
+
+                <Grid item alignSelf={'center'}>
+                    <Grow direction="up" in={true} timeout={3000} mountOnEnter unmountOnExit>
+                        <Button className={classes.button} color={'secondary'} variant={"contained"}>
+                            click here for framed wall-art </Button>
+                    </Grow>
+                </Grid>
+
             </Grid>
         </div>
     )
@@ -60,31 +81,59 @@ export default HomePage
 
 
 const useStyles = makeStyles(theme => ({
-    container: {
+    top: {
+        paddingTop: '10vh',
         height: '100vh', // our container will take the full height of the window
         backgroundSize: 'cover', // stretch the image to fill the full width and height
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'top center',
+        backgroundImage: 'url(https://images.unsplash.com/photo-1453814235491-3cfac3999928?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)',
+        backgroundColor: 'black',
+        opacity: 10,
+        overflow: "hidden"
+    },
+    container: {
+        margin: 20,
+        minWidth: '100%',
+        textAlign: "center",
+        backgroundColor: 'rgba(19, 20, 20, 0.7)',
     },
     coverImg: {
         height: "100vh", // the image itself will take the full height of the window
     },
     coverTxt: {
-        marginTop: '20vh',
         color: 'white',
-        fontFamily: 'Cinzel', // a custom font, look at the box below on how to import
-        fontSize: '8vw'
+        fontFamily: 'Knewave', // a custom font, look at the box below on how to import
+        fontSize: '3em',
+        // textFillColor: 'white',
+        // textStrokeWidth: 0.1,
+        // textStrokeColor: 'black',
+        // fontWeight: 100,
+        minWidth: 0,
+    },
+    boring: {
+        color: 'white',
+        fontFamily: 'TimesNewRoman', // a custom font, look at the box below on how to import
+        fontSize: '3em',
+        fontWeight: 1000,
+        minWidth: 0,
     },
 
     subTitleTxt: {
         fontFamily: 'Knewave', // a custom font, look at the box below on how to import
         color: 'white',
-        fontSize: '4vw' // this is a measurement of viewWidth
+        fontSize: '3em',
     },
     button: {
         color: 'white',
-        fontSize: '1.8vw',
-        fontFamily: 'Poiret One', // a custom font, look at the box below on how to import
-        margin: 10
+        fontSize: '1.2em',
+        fontFamily: 'Raleway', // a custom font, look at the box below on how to import
+        marginTop: "10vh",
+        backgroundColor: 'black',
+        animation: 'shake 10s',
+        borderStyle: 'double',
+        borderWidth: 3,
+        borderColor: 'white',
+        borderRadius: 0
     }
 }))
