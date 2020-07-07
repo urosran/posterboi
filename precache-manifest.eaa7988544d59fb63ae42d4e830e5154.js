@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1930381a7be76e267a0fd6c853f7885e",
+    "revision": "226348a550e6b8cb1eed06d7059fb007",
     "url": "/posterboi/index.html"
   },
   {
-    "revision": "a59f5907898b8a33d629",
-    "url": "/posterboi/static/js/2.c4d40f2a.chunk.js"
+    "revision": "f4da0712be7a14fc9205",
+    "url": "/posterboi/static/js/2.a11dc756.chunk.js"
   },
   {
     "revision": "0749163b59fbee32225059cb60c18af6",
-    "url": "/posterboi/static/js/2.c4d40f2a.chunk.js.LICENSE.txt"
+    "url": "/posterboi/static/js/2.a11dc756.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "caa8af04920a5f19084c",
-    "url": "/posterboi/static/js/main.31f0cdf5.chunk.js"
+    "revision": "5bc0818c1f677694c16a",
+    "url": "/posterboi/static/js/main.ab00996a.chunk.js"
   },
   {
     "revision": "bcfbea3eda4434b46ffb",
