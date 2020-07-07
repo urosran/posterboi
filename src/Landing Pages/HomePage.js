@@ -10,7 +10,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 
 // TODO: for this to work we will create a folder called assets in src and place it here
 //  download any image and name it coverImg.jpg (www.unsplash.com is a great resource)
-import coverImg from '../assets/coverImg.jpg'
+import coverImg from '../assets/hompageCover.jpg'
 
 const HomePage = () => {
 
