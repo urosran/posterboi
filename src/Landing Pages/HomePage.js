@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 //importing styles from our UI library
 import {makeStyles} from "@material-ui/core/styles";
 // assets from our UI library that help us build the
@@ -15,8 +15,16 @@ import Slide from "@material-ui/core/Slide";
 import Grow from "@material-ui/core/Grow";
 
 const HomePage = () => {
-
+    const [showBuyBtn, setShowBuyBtn ] = useState(false)
     const classes = useStyles(); // we are using the method to load our css we will declare later
+    // TODO: add the resizable fonts
+
+    useEffect(()=>{
+        setTimeout(()=>{
+            setShowBuyBtn(true)
+        }, 2000)
+    })
+
 
     return (
         // defines a top level container (the one for the entire page)
@@ -29,35 +37,23 @@ const HomePage = () => {
                   direction={'column'} // aligns everything in a column, could also be row
                 // adds a background image
             >
-                {/*now we define another container for out buttons at the very top*/}
-                {/*<Grid container direction={'row'} alignContent={'flex-end'} alignItems={'flex-end'}>*/}
-                {/*    <Button disableRipple={true} className={classes.button}>Log In</Button>*/}
-                {/*    /!*This is how you can route the user from any component (explanation below)*!/*/}
-                {/*    <Route render={({history}) => (*/}
-                {/*        <Button disableRipple={true} // disables ripple effect on the button press*/}
-                {/*                className={classes.button} // this applies the styles we will define later*/}
-                {/*                on={() => history.push('./store')}>Shop</Button>)}/>*/}
-
-                {/*    <Button disableRipple={true} className={classes.button}>About</Button>*/}
-                {/*</Grid>*/}
                 <Grid container
                       alignContent={'center'} alignItems={'center'} // centers all content
                       direction={'column'} // aligns everything in a column, could also be row
                 >
                     {/* make sure to wrap container’s children with <Grid item> tag*/}
+                    <Slide direction="right" in={true} timeout={1000} mountOnEnter unmountOnExit>
 
-                    <Grid className={classes.container} // applies the CSS declared above
-                          item alignSelf={'center'}>
-                        <Typography className={classes.coverTxt}>Are you...
-                        </Typography>
-                        <Typography className={classes.boring}>...boring?</Typography>
-
-                    </Grid>
+                        <Grid className={classes.container} // applies the CSS declared above
+                              item alignSelf={'center'}>
+                            <Typography className={classes.coverTxt}>You have a colorful personality</Typography>
+                        </Grid>
+                    </Slide>
                     <Slide direction="left" in={true} timeout={1000} mountOnEnter unmountOnExit>
 
                         <Grid className={classes.container} // applies the CSS declared above
                               item alignSelf={'center'}>
-                            <Typography className={classes.subTitleTxt}>why should your walls be? </Typography>
+                            <Typography className={classes.subTitleTxt}>so should your walls! </Typography>
                         </Grid>
                     </Slide>
 
@@ -66,7 +62,7 @@ const HomePage = () => {
             <Grid container alignItems={"center"} direction={"column"}>
 
                 <Grid item alignSelf={'center'}>
-                    <Grow direction="up" in={true} timeout={3000} mountOnEnter unmountOnExit>
+                    <Grow direction="up" in={showBuyBtn} timeout={1000} mountOnEnter unmountOnExit>
                         <Button className={classes.button} color={'secondary'} variant={"contained"}>
                             click here for framed wall-art </Button>
                     </Grow>
@@ -82,7 +78,7 @@ export default HomePage
 
 const useStyles = makeStyles(theme => ({
     top: {
-        paddingTop: '10vh',
+        paddingTop: '5vh',
         height: '100vh', // our container will take the full height of the window
         backgroundSize: 'cover', // stretch the image to fill the full width and height
         backgroundRepeat: 'no-repeat',
@@ -93,8 +89,10 @@ const useStyles = makeStyles(theme => ({
         overflow: "hidden"
     },
     container: {
-        margin: 20,
+        verticalAlign: 'center',
+        marginTop: 60,
         minWidth: '100%',
+        minHeight: 100,
         textAlign: "center",
         backgroundColor: 'rgba(19, 20, 20, 0.7)',
     },
@@ -104,7 +102,7 @@ const useStyles = makeStyles(theme => ({
     coverTxt: {
         color: 'white',
         fontFamily: 'Knewave', // a custom font, look at the box below on how to import
-        fontSize: '3em',
+        fontSize: '4em',
         // textFillColor: 'white',
         // textStrokeWidth: 0.1,
         // textStrokeColor: 'black',
