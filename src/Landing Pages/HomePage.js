@@ -1,18 +1,12 @@
 import React, {useEffect, useState} from 'react';
-//importing styles from our UI library
 import {makeStyles} from "@material-ui/core/styles";
-// assets from our UI library that help us build the
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import {Route} from "react-router";
 import CssBaseline from "@material-ui/core/CssBaseline";
-
-// TODO: for this to work we will create a folder called assets in src and place it here
-//  download any image and name it coverImg.jpg (www.unsplash.com is a great resource)
-import coverImg from '../assets/hompageCover.jpg'
 import Slide from "@material-ui/core/Slide";
 import Grow from "@material-ui/core/Grow";
+import {Link} from "react-router-dom";
 
 const HomePage = () => {
     const [showBuyBtn, setShowBuyBtn ] = useState(false)
@@ -45,15 +39,15 @@ const HomePage = () => {
                     <Slide direction="right" in={true} timeout={1000} mountOnEnter unmountOnExit>
 
                         <Grid className={classes.container} // applies the CSS declared above
-                              item alignSelf={'center'}>
-                            <Typography className={classes.coverTxt}>You have a colorful personality</Typography>
+                              item >
+                            <Typography  variant={"h1"} className={classes.coverTxt}>You have a colorful personality</Typography>
                         </Grid>
                     </Slide>
                     <Slide direction="left" in={true} timeout={1000} mountOnEnter unmountOnExit>
 
                         <Grid className={classes.container} // applies the CSS declared above
-                              item alignSelf={'center'}>
-                            <Typography className={classes.subTitleTxt}>so should your walls! </Typography>
+                              item >
+                            <Typography variant={"h1"} className={classes.subTitleTxt}>so should your walls! </Typography>
                         </Grid>
                     </Slide>
 
@@ -61,10 +55,12 @@ const HomePage = () => {
             </Grid>
             <Grid container alignItems={"center"} direction={"column"}>
 
-                <Grid item alignSelf={'center'}>
+                <Grid item >
                     <Grow direction="up" in={showBuyBtn} timeout={1000} mountOnEnter unmountOnExit>
+                        <Link to={'/wall'}>
                         <Button className={classes.button} color={'secondary'} variant={"contained"}>
                             click here for framed wall-art </Button>
+                        </Link>
                     </Grow>
                 </Grid>
 
@@ -102,25 +98,14 @@ const useStyles = makeStyles(theme => ({
     coverTxt: {
         color: 'white',
         fontFamily: 'Knewave', // a custom font, look at the box below on how to import
-        fontSize: '4em',
-        // textFillColor: 'white',
-        // textStrokeWidth: 0.1,
-        // textStrokeColor: 'black',
-        // fontWeight: 100,
-        minWidth: 0,
-    },
-    boring: {
-        color: 'white',
-        fontFamily: 'TimesNewRoman', // a custom font, look at the box below on how to import
-        fontSize: '3em',
-        fontWeight: 1000,
+        // fontSize: '4em',
         minWidth: 0,
     },
 
     subTitleTxt: {
         fontFamily: 'Knewave', // a custom font, look at the box below on how to import
         color: 'white',
-        fontSize: '3em',
+        // fontSize: '3em',
     },
     button: {
         color: 'white',
